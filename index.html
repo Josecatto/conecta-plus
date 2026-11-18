@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#11163A">
+<meta name="description" content="CONECTA+: sitio educativo sobre ciudadanía digital y uso responsable de redes sociales para estudiantes de 7.º a 10.º grado.">
+<title>CONECTA+ · Antes de publicar, piensa</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%2311163A'/><path d='M50 28v44M28 50h44' stroke='%23FF4D7E' stroke-width='14' stroke-linecap='round'/></svg>">
+<style>
+:root{
+  --ink:#11163A; --ink2:#434968; --muted:#676D8F; --bg:#F4F6FB; --card:#FFFFFF; --line:rgba(17,22,58,.10);
+  --blue:#3D5AFE; --blue-d:#2A3EB1; --blue-l:#E8ECFF;
+  --pink:#FF4D7E; --pink-d:#C2264D; --pink-l:#FFE6EE;
+  --cyan:#00A6C7; --cyan-l:#DDF6FB;
+  --amber:#F59E0B; --amber-d:#92400E; --amber-l:#FEF3C7;
+  --violet:#7C3AED; --violet-l:#EDE7FE;
+  --ok:#11795A; --ok-bg:#E2F6EE; --ok-line:#5DC9A3;
+  --bad:#C2264D; --bad-bg:#FFE8EE; --bad-line:#FF9BB5;
+  --r:22px; --shadow:0 10px 34px rgba(17,22,58,.08);
+  --c:var(--blue); --cl:var(--blue-l);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:120px}
+body{margin:0;font-family:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;overflow-x:hidden}
+h1,h2,h3,h4{font-family:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;line-height:1.15;letter-spacing:-.02em;margin:0 0 .5em}
+h1{font-weight:900} h2{font-weight:850} h3,h4{font-weight:800}
+a{color:var(--blue)}
+button{font:inherit;cursor:pointer;color:inherit}
+:focus-visible{outline:3px solid var(--pink);outline-offset:2px;border-radius:8px}
+[hidden]{display:none!important}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+svg.i{width:1.15em;height:1.15em;vertical-align:-.2em;flex-shrink:0}
+.grad{background:linear-gradient(90deg,var(--blue),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;background:rgba(244,246,251,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .bar1{display:flex;align-items:center;gap:12px;height:58px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-weight:900;font-size:1.15rem;letter-spacing:.02em}
+.logo .mk{width:32px;height:32px;border-radius:10px;background:var(--ink);display:flex;align-items:center;justify-content:center}
+.logo b{color:var(--pink)}
+.gprog{margin-left:auto;display:flex;align-items:center;gap:10px;min-width:0;flex:0 1 280px}
+.gprog .track{flex:1;height:9px;background:#E3E7F3;border-radius:99px;overflow:hidden}
+.gprog .track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--pink));border-radius:99px;transition:width .5s}
+.gprog span{font-weight:800;font-size:.85rem;color:var(--ink2);white-space:nowrap}
+.nav{display:flex;gap:6px;overflow-x:auto;padding:0 0 9px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink2);font-weight:750;font-size:.9rem;padding:7px 12px;border-radius:99px;border:1.5px solid transparent;white-space:nowrap}
+.nav a .n{width:22px;height:22px;border-radius:7px;background:#E3E7F3;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:900}
+.nav a:hover{background:#fff;border-color:var(--line)}
+.nav a.on{background:var(--ink);color:#fff}
+.nav a.on .n{background:var(--sc,var(--pink));color:#fff}
+.nav a.done .n{background:var(--ok);color:#fff}
+@media (min-width:900px){.nav{justify-content:center}}
+
+/* buttons */
+.btn{border:0;border-radius:14px;padding:12px 20px;font-weight:800;background:var(--ink);color:#fff;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:1rem;transition:transform .12s,background .2s}
+.btn:hover{background:#262c5a}
+.btn:active{transform:scale(.98)}
+.btn.c{background:var(--c)}
+.btn.c:hover{filter:brightness(.92)}
+.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn.sm{padding:8px 14px;font-size:.9rem;border-radius:12px}
+
+/* hero */
+.hero{background:var(--ink);color:#fff;border-radius:0 0 34px 34px;overflow:hidden;position:relative}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(10px);opacity:.55}
+.hero::before{width:360px;height:360px;background:radial-gradient(circle,#3D5AFE,transparent 68%);top:-120px;right:-80px}
+.hero::after{width:320px;height:320px;background:radial-gradient(circle,#FF4D7E,transparent 68%);bottom:-170px;left:-90px}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:20px;padding-top:34px;padding-bottom:40px;align-items:center}
+.chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:700;font-size:.8rem;padding:5px 11px;border-radius:99px}
+.hero h1{font-size:clamp(2.3rem,8vw,3.8rem);margin:14px 0 6px}
+.hero h1 b{color:var(--pink)}
+.hero .slogan{font-size:clamp(1.05rem,3.4vw,1.35rem);font-weight:750;color:#C9CFF5;margin:0 0 14px}
+.hero p{color:#D7DBF4;margin:0 0 20px;max-width:560px}
+.hero .btn{background:var(--pink)}
+.hero .btn:hover{background:#ff3b70}
+.hero .art{max-width:330px;width:100%;margin:0 auto}
+.float{animation:float 5s ease-in-out infinite}
+.float.d2{animation-delay:-1.6s} .float.d3{animation-delay:-3.2s}
+@keyframes float{50%{transform:translateY(-8px)}}
+
+/* generic cards */
+.blk{margin:26px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:20px}
+.grid2,.grid3,.grid5{display:grid;grid-template-columns:1fr;gap:12px}
+.mini{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+.mini .ic{width:42px;height:42px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;background:var(--cl);color:var(--c)}
+.mini h4{margin:0 0 4px;font-size:1.02rem}
+.mini p{margin:0;color:var(--ink2);font-size:.95rem}
+.kicker{font-size:.76rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.h2{font-size:clamp(1.4rem,4.4vw,1.9rem);margin:4px 0 8px}
+.lead{color:var(--ink2);margin:0 0 14px}
+.obj{border-left:5px solid var(--pink);background:#fff;border-radius:0 18px 18px 0;padding:16px 18px;box-shadow:var(--shadow)}
+.obj b{color:var(--pink-d)}
+
+/* section page */
+.shead{margin-top:20px;border-radius:var(--r);padding:22px;color:#fff;background:var(--ink);position:relative;overflow:hidden}
+.shead::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--c);opacity:.55;filter:blur(6px)}
+.shead > *{position:relative;z-index:1}
+.shead .k{font-weight:900;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#C9CFF5}
+.shead h2{font-size:clamp(1.6rem,5vw,2.3rem);margin:4px 0 8px}
+.shead p{margin:0 0 14px;color:#D7DBF4;max-width:640px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.checks span{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:750;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:4px 11px}
+.checks span.ok{background:var(--ok);border-color:var(--ok)}
+.part{margin:22px 0}
+.ptag{display:inline-flex;align-items:center;gap:7px;font-weight:900;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--c);background:var(--cl);padding:5px 11px;border-radius:99px;margin-bottom:10px}
+.part > .card h3{font-size:1.3rem}
+.txt p{margin:0 0 .8em} .txt p:last-child{margin:0}
+.hl{background:linear-gradient(transparent 58%,var(--cl) 58%);font-weight:800}
+.tip{display:flex;gap:12px;align-items:flex-start;background:var(--cl);border-radius:16px;padding:14px;margin-top:14px}
+.tip .ic{color:var(--c);flex-shrink:0;margin-top:2px}
+.tip p{margin:0}
+.snav{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:24px 0 40px}
+
+/* infografía huella */
+.vs{display:grid;grid-template-columns:1fr;gap:12px}
+.vs .side{border-radius:18px;padding:16px;border:2px solid var(--line);background:#fff}
+.vs .side h4{display:flex;align-items:center;gap:8px}
+.vs ul{margin:6px 0 0;padding-left:20px} .vs li{margin:4px 0}
+
+/* video */
+.vid{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000 center/cover no-repeat;margin:12px 0}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vid .play{position:absolute;inset:0;border:0;width:100%;background:linear-gradient(rgba(17,22,58,.15),rgba(17,22,58,.65));color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-weight:800}
+.vid .play .pi{width:68px;height:68px;border-radius:50%;background:var(--pink);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(255,77,126,.45);transition:transform .2s}
+.vid .play:hover .pi{transform:scale(1.08)}
+.vmeta{font-size:.88rem;color:var(--muted)} .vmeta a{font-weight:800}
+.orient{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1.5px dashed var(--c);border-radius:16px;padding:12px 14px;margin-bottom:6px}
+.orient b{color:var(--c)}
+
+/* quiz y retroalimentación */
+.q{border:1.5px solid var(--line);border-radius:18px;padding:16px;margin:0 0 12px;background:#fff}
+.q .qt{font-weight:800;margin-bottom:10px}
+.q .num{display:inline-flex;width:26px;height:26px;border-radius:8px;background:var(--c);color:#fff;align-items:center;justify-content:center;font-size:.8rem;margin-right:8px;vertical-align:1px}
+.opts{display:grid;grid-template-columns:1fr;gap:8px}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;font-weight:650;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--c);background:var(--cl)}
+.opt .l{width:26px;height:26px;border-radius:8px;background:#EEF0F7;color:var(--ink2);display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0;font-size:.82rem}
+.locked .opt{pointer-events:none}
+.opt.ok{border-color:var(--ok-line);background:var(--ok-bg);color:var(--ok)} .opt.ok .l{background:var(--ok);color:#fff}
+.opt.bad{border-color:var(--bad-line);background:var(--bad-bg);color:var(--bad);animation:shake .35s} .opt.bad .l{background:var(--bad);color:#fff}
+.locked .opt:not(.ok):not(.bad){opacity:.5}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.fb{display:flex;gap:10px;align-items:flex-start;margin-top:10px;border-radius:14px;padding:11px 13px;font-size:.95rem;animation:pop .25s}
+.fb.ok{background:var(--ok-bg);color:var(--ok)} .fb.bad{background:var(--bad-bg);color:var(--bad)} .fb.info{background:var(--cl);color:var(--ink)}
+.fb .t{display:block;font-weight:900}
+.fb .ico{flex-shrink:0;margin-top:2px}
+@keyframes pop{from{transform:scale(.97);opacity:0}}
+.tally{display:flex;align-items:center;flex-wrap:wrap;gap:10px;background:var(--cl);border-radius:16px;padding:12px 14px;font-weight:800;margin-top:6px}
+.tally .sp{flex:1}
+.res{border-radius:16px;padding:14px;margin-top:10px;font-weight:700;display:flex;gap:12px;align-items:center}
+.res.good{background:var(--ok-bg);color:var(--ok)} .res.mid{background:var(--amber-l);color:var(--amber-d)}
+.res .big{font-size:1.8rem;font-weight:900;line-height:1}
+
+/* ¿Lo publicarías? (posts) */
+.posts{display:grid;grid-template-columns:1fr;gap:14px}
+.post{background:#fff;border:1.5px solid var(--line);border-radius:20px;overflow:hidden}
+.post .ph{display:flex;align-items:center;gap:10px;padding:12px 14px 8px}
+.av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:.85rem;flex-shrink:0}
+.post .who{font-weight:800;font-size:.92rem;line-height:1.2} .post .who small{display:block;color:var(--muted);font-weight:600}
+.post .pic{margin:0 14px;border-radius:14px;height:120px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:#fff;font-weight:800;text-align:center;padding:10px}
+.post .cap{padding:10px 14px 4px;font-size:.95rem}
+.post .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 14px 14px}
+.post .acts button{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:6px}
+.post .acts button:hover{border-color:var(--c)}
+.post.locked .acts button{pointer-events:none}
+.post .acts button.ok{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok)}
+.post .acts button.bad{background:var(--bad-bg);border-color:var(--bad-line);color:var(--bad)}
+.post .fb{margin:0 14px 14px}
+
+/* chat simulado */
+.phone{max-width:420px;margin:0 auto;background:#fff;border:1.5px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.phone .bar{background:var(--ink);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px;font-weight:800}
+.phone .bar small{display:block;font-weight:600;color:#C9CFF5;font-size:.75rem}
+.chat{padding:14px;display:flex;flex-direction:column;gap:8px;background:#F1F3FA;min-height:260px}
+#chatfb .fb{margin:10px 0 0}
+.msg{max-width:84%;padding:9px 12px;border-radius:16px;font-size:.93rem;line-height:1.4;animation:pop .3s}
+.msg small{display:block;font-weight:800;font-size:.72rem;opacity:.7}
+.msg.them{background:#fff;border-bottom-left-radius:5px;align-self:flex-start}
+.msg.me{background:var(--c);color:#fff;border-bottom-right-radius:5px;align-self:flex-end}
+.msg.sys{align-self:center;background:var(--amber-l);color:var(--amber-d);font-weight:700;font-size:.82rem;text-align:center;max-width:95%}
+.msg.img{background:#fff;padding:6px;border-bottom-left-radius:5px}
+.msg.img .fake{height:90px;border-radius:12px;background:repeating-linear-gradient(45deg,#FFD3DF,#FFD3DF 10px,#FFE6EE 10px,#FFE6EE 20px);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--pink-d);font-size:.82rem;text-align:center;padding:6px}
+.choices{padding:12px;display:grid;gap:8px;border-top:1px solid var(--line)}
+.choices .lbl{font-size:.8rem;font-weight:800;color:var(--muted)}
+.choices button{text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-weight:700}
+.choices button:hover{border-color:var(--c);background:var(--cl)}
+
+/* ayuda */
+.help{display:grid;grid-template-columns:1fr;gap:10px}
+.help a{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
+.help a:hover{border-color:var(--c)}
+.help .ic{width:40px;height:40px;border-radius:12px;background:var(--cl);color:var(--c);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.help b{display:block} .help small{color:var(--muted)}
+
+/* ruta de verificación / ordenar */
+.steps4{display:grid;grid-template-columns:1fr;gap:10px;counter-reset:s}
+.step4{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:14px}
+.step4 .n{width:40px;height:40px;border-radius:12px;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;flex-shrink:0}
+.step4 h4{margin:0 0 2px} .step4 p{margin:0;color:var(--ink2);font-size:.95rem}
+.order{display:flex;flex-direction:column;gap:8px}
+.order .slot{display:flex;align-items:center;gap:10px;border:1.5px dashed var(--line);border-radius:14px;padding:10px 12px;min-height:48px;background:#fff}
+.order .slot .n{width:28px;height:28px;border-radius:9px;background:#EEF0F7;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0}
+.order .slot.filled{border-style:solid;border-color:var(--c)}
+.order .slot.ok{border-color:var(--ok-line);background:var(--ok-bg)} .order .slot.bad{border-color:var(--bad-line);background:var(--bad-bg)}
+.pool{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.pill{border:1.5px solid var(--c);background:#fff;color:var(--ink);border-radius:99px;padding:7px 14px;font-weight:750}
+.pill:hover{background:var(--cl)} .pill.used{opacity:.25;pointer-events:none}
+
+/* señales en publicación falsa */
+.newsfeed{display:grid;grid-template-columns:1fr;gap:14px}
+.news{background:#fff;border:1.5px solid var(--line);border-radius:20px;padding:14px}
+.news .src{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted);font-weight:700}
+.news .hd{font-weight:850;font-size:1.05rem;margin:8px 0 6px;line-height:1.3}
+.news .bd{font-size:.93rem;color:var(--ink2);margin:0 0 10px}
+.news .acts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.news .acts button{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:9px;font-weight:800}
+.news .acts button:hover{border-color:var(--c)}
+.news.locked .acts button{pointer-events:none}
+.news .acts button.ok{background:var(--ok-bg);border-color:var(--ok-line);color:var(--ok)}
+.news .acts button.bad{background:var(--bad-bg);border-color:var(--bad-line);color:var(--bad)}
+
+/* contraseña */
+.pw{display:flex;gap:8px;flex-wrap:wrap}
+.pw input{flex:1 1 240px;font:inherit;font-weight:700;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+.pw input:focus{outline:none;border-color:var(--c)}
+.meter{height:12px;background:#E3E7F3;border-radius:99px;overflow:hidden;margin:12px 0 6px}
+.meter i{display:block;height:100%;width:0;border-radius:99px;transition:width .3s,background .3s}
+.rules{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:6px}
+.rules li{display:flex;gap:8px;align-items:center;font-size:.95rem;color:var(--muted)}
+.rules li.on{color:var(--ok);font-weight:700}
+.rules li .dot{width:20px;height:20px;border-radius:50%;border:2px solid currentColor;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rules li.on .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.warn{font-size:.88rem;color:var(--amber-d);background:var(--amber-l);border-radius:12px;padding:8px 12px;margin-top:10px}
+
+/* privacidad (toggles) */
+.profile{display:grid;grid-template-columns:1fr;gap:16px}
+.settings{display:flex;flex-direction:column;gap:10px}
+.set{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
+.set .tx{flex:1} .set .tx b{display:block;font-size:.97rem} .set .tx small{color:var(--muted)}
+.sw{position:relative;width:50px;height:28px;border-radius:99px;border:0;background:#CBD0E2;flex-shrink:0;transition:background .2s;padding:0}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:transform .2s;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.sw[aria-checked="true"]{background:var(--c)}
+.sw[aria-checked="true"]::after{transform:translateX(22px)}
+.set .st{font-size:.8rem;font-weight:800;min-width:66px;text-align:right}
+.score{background:var(--ink);color:#fff;border-radius:20px;padding:18px;text-align:center}
+.ring{width:130px;height:130px;margin:6px auto}
+.score b{font-size:1.1rem}
+
+/* autoevaluación */
+.likert{display:flex;flex-direction:column;gap:10px}
+.lk{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:12px 14px}
+.lk p{margin:0 0 8px;font-weight:700}
+.lk .row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.lk .row button{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:8px 4px;font-weight:750;font-size:.9rem}
+.lk .row button.sel{background:var(--c);border-color:var(--c);color:#fff}
+textarea{width:100%;font:inherit;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;min-height:96px;resize:vertical;color:var(--ink);background:#fff}
+textarea:focus{outline:none;border-color:var(--c)}
+.err{color:var(--bad);font-size:.85rem;font-weight:700;margin-top:6px}
+.commit{display:grid;grid-template-columns:1fr;gap:8px}
+.commit label{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:10px 12px;cursor:pointer;font-weight:650}
+.commit input{width:20px;height:20px;accent-color:var(--violet);margin-top:2px;flex-shrink:0}
+.pact{background:var(--ink);color:#fff;border-radius:24px;padding:24px 20px;margin-top:14px;position:relative;overflow:hidden}
+.pact::after{content:"";position:absolute;right:-50px;bottom:-50px;width:180px;height:180px;border-radius:50%;background:var(--pink);opacity:.4;filter:blur(8px)}
+.pact > *{position:relative;z-index:1}
+.pact h3{font-size:1.5rem;margin-bottom:4px}
+.pact ul{margin:12px 0;padding-left:20px} .pact li{margin:6px 0}
+.pact .q2{color:#D7DBF4;font-style:italic;border-left:3px solid var(--pink);padding-left:10px;margin:10px 0}
+
+/* créditos */
+.refs li{margin:8px 0;word-break:break-word}
+.toast{position:fixed;left:50%;bottom:18px;transform:translate(-50%,40px);opacity:0;z-index:80;background:var(--ink);color:#fff;padding:12px 16px;border-radius:14px;max-width:calc(100% - 32px);width:max-content;box-shadow:0 10px 30px rgba(17,22,58,.3);transition:.3s;font-weight:700;display:flex;gap:10px;align-items:center;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px 0 36px}
+
+@media (min-width:720px){
+  .hero .wrap{grid-template-columns:1.25fr 1fr;padding-top:52px;padding-bottom:56px}
+  .grid2,.vs,.posts,.newsfeed,.help,.steps4,.commit{grid-template-columns:1fr 1fr}
+  .grid3{grid-template-columns:repeat(3,1fr)}
+  .grid5{grid-template-columns:repeat(3,1fr)}
+  .opts{grid-template-columns:1fr 1fr} .opts.one{grid-template-columns:1fr}
+  .profile{grid-template-columns:1.4fr 1fr;align-items:start}
+  .card{padding:26px}
+}
+@media (min-width:980px){ .grid5{grid-template-columns:repeat(5,1fr)} .posts{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:520px){ .gprog span{display:none} .logo .tx{font-size:1.05rem} }
+@media print{
+  .top,footer,.snav,.shead,.ptag,.noprint{display:none!important}
+  body{background:#fff}
+  .pact{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar1">
+    <a class="logo" href="#inicio" aria-label="CONECTA+, inicio">
+      <span class="mk"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v14M3 10h14" stroke="#FF4D7E" stroke-width="4" stroke-linecap="round"/></svg></span>
+      <span class="tx">CONECTA<b>+</b></span>
+    </a>
+    <div class="gprog" title="Tu progreso en las actividades">
+      <div class="track" role="progressbar" aria-label="Progreso" aria-valuemin="0" aria-valuemax="100" id="gTrack"><i id="gFill"></i></div>
+      <span id="gTxt">0 de 0 actividades</span>
+    </div>
+  </div>
+  <nav class="wrap nav" aria-label="Páginas del sitio" id="nav"></nav>
+</header>
+
+<main id="app"></main>
+<footer>CONECTA+ · Grupo 2 · TICE, Facultad de Educación · <a href="#creditos">Créditos y referencias</a></footer>
+
+<script>
+/* =========================================================
+   ÍCONOS (trazos simples)
+   ========================================================= */
+const IC = {
+  home:'<path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/>',
+  id:'<rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="12" r="2.5"/><path d="M14 10h4M14 14h3"/>',
+  foot:'<path d="M8 3c2 0 3 2 3 5s-1 6-3 6-3-3-3-6 1-5 3-5zM16 9c2 0 3 2 3 4s-1 5-3 5-3-2-3-5 1-4 3-4z"/>',
+  alert:'<path d="M12 3 2 20h20z"/><path d="M12 10v4M12 17h.01"/>',
+  news:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/>',
+  lock:'<rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/>',
+  star:'<path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/>',
+  book:'<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/>',
+  check:'<path d="M5 12.5 10 17 19 7.5"/>',
+  x:'<path d="M6 6l12 12M18 6 6 18"/>',
+  eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
+  shield:'<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/>',
+  chat:'<path d="M4 5h16v11H9l-5 4z"/>',
+  hand:'<path d="M7 11V6a1.5 1.5 0 0 1 3 0v4M10 10V4.5a1.5 1.5 0 0 1 3 0V10M13 10V5.5a1.5 1.5 0 0 1 3 0V12M16 11a1.5 1.5 0 0 1 3 0v3a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-3l-2.5-4a1.5 1.5 0 0 1 2.5-1.6L7 14"/>',
+  ban:'<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
+  phone:'<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/>',
+  play:'<path d="M7 4v16l13-8z" fill="currentColor" stroke="none"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  link:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>',
+  heart:'<path d="M12 20s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9z"/>',
+  users:'<circle cx="9" cy="8" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14a5 5 0 0 1 5 5"/>',
+  pin:'<path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/>',
+  key:'<circle cx="8" cy="15" r="4"/><path d="m11 12 9-9M17 6l3 3M15 8l2 2"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/>',
+  print:'<path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/>',
+  arrowR:'<path d="M5 12h14M13 6l6 6-6 6"/>', arrowL:'<path d="M19 12H5M11 6l-6 6 6 6"/>',
+  refresh:'<path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/>'
+};
+const ico=(n,cls='i')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]}</svg>`;
+
+/* =========================================================
+   PÁGINAS DEL SITIO (según el mapa de contenidos)
+   ========================================================= */
+const PAGES = [
+  {id:'inicio',   n:'',  short:'Inicio', icon:'home'},
+  {id:'s1', n:'1', short:'Identidad digital', title:'Tu identidad y tu huella digital', icon:'foot', c:'#3D5AFE', cl:'#E8ECFF'},
+  {id:'s2', n:'2', short:'Ciberacoso', title:'Ciberacoso: reconócelo y actúa', icon:'alert', c:'#FF4D7E', cl:'#FFE6EE'},
+  {id:'s3', n:'3', short:'Noticias falsas', title:'Noticias falsas: verifica antes de compartir', icon:'news', c:'#D97706', cl:'#FEF3C7'},
+  {id:'s4', n:'4', short:'Privacidad', title:'Tus datos, tus contraseñas, tu privacidad', icon:'lock', c:'#0891B2', cl:'#DDF6FB'},
+  {id:'s5', n:'5', short:'Reto final', title:'Reto final: practica, evalúa y reflexiona', icon:'star', c:'#7C3AED', cl:'#EDE7FE'},
+  {id:'creditos', n:'', short:'Créditos', icon:'book'}
+];
+// Actividades que cuentan para el progreso (sección -> claves)
+const ACTS = {
+  s1:{video1:'Pregunta del video', publicar:'¿Lo publicarías?', huella:'Reflexión'},
+  s2:{video2:'Preguntas del video', chat:'¿Qué harías?'},
+  s3:{realfalsa:'¿Real o sospechosa?', ruta:'Ordena la ruta'},
+  s4:{pass:'Crea una contraseña fuerte', perfil:'Configura tu perfil'},
+  s5:{quiz:'Evaluación', auto:'Autoevaluación', pacto:'Reflexión y compromiso'}
+};
+
+/* =========================================================
+   ESTADO (solo en este navegador; no se envía a ningún lado)
+   ========================================================= */
+const KEY='conecta-plus-v1';
+let ST={done:{}};
+try{ const d=JSON.parse(localStorage.getItem(KEY)||'null'); if(d&&d.done) ST=d; }catch(e){}
+const save=()=>{ try{ localStorage.setItem(KEY,JSON.stringify(ST)); }catch(e){} };
+const allActs=()=>Object.entries(ACTS).flatMap(([s,o])=>Object.keys(o).map(k=>s+'.'+k));
+function complete(sec,key){
+  const k=sec+'.'+key; if(ST.done[k]) { renderProgress(); return; }
+  ST.done[k]=1; save(); renderProgress();
+  toast(`${ico('check')} Actividad completada: ${ACTS[sec][key]}`);
+  if(Object.keys(ACTS[sec]).every(x=>ST.done[sec+'.'+x])) setTimeout(()=>toast(`${ico('star')} ¡Sección ${sec.slice(1)} completa!`),1600);
+}
+function renderProgress(){
+  const all=allActs(), d=all.filter(k=>ST.done[k]).length, pct=Math.round(d/all.length*100);
+  $('#gFill').style.width=pct+'%'; $('#gTxt').textContent=`${d} de ${all.length} actividades`;
+  $('#gTrack').setAttribute('aria-valuenow',pct);
+  PAGES.forEach(p=>{ if(!ACTS[p.id]) return; const a=$(`.nav a[href="#${p.id}"]`); if(a) a.classList.toggle('done',Object.keys(ACTS[p.id]).every(k=>ST.done[p.id+'.'+k])); });
+  $$('[data-check]').forEach(el=>{ const ok=!!ST.done[el.dataset.check]; el.classList.toggle('ok',ok); el.innerHTML=`${ok?ico('check'):ico('clock')} ${el.dataset.label}`; });
+  $$('[data-cardprog]').forEach(el=>{ const s=el.dataset.cardprog, ks=Object.keys(ACTS[s]), n=ks.filter(k=>ST.done[s+'.'+k]).length; el.textContent=n===ks.length?'Completada':`${n} de ${ks.length} actividades`; el.style.color=n===ks.length?'var(--ok)':''; });
+}
+
+/* =========================================================
+   UTILIDADES
+   ========================================================= */
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>[...el.querySelectorAll(s)];
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+function toast(html){ let t=$('#toast'); if(!t){ t=document.createElement('div'); t.id='toast'; t.className='toast'; t.setAttribute('role','status'); document.body.appendChild(t); } t.innerHTML=html; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2600); }
+const fb=(type,title,txt)=>`<div class="fb ${type}" role="status"><span class="ico">${ico(type==='ok'?'check':type==='bad'?'x':'info')}</span><span><span class="t">${title}</span>${txt||''}</span></div>`;
+
+/* =========================================================
+   CONTENIDO DE CADA PÁGINA
+   ========================================================= */
+const VIEW = {};
+
+VIEW.inicio = () => `
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="chip">${ico('shield')} Ciudadanía digital · Grados 7.º a 10.º</span>
+      <h1>CONECTA<b>+</b></h1>
+      <p class="slogan">Antes de publicar, piensa. Antes de compartir, comprende.</p>
+      <p>¡Bienvenido o bienvenida! Pasas buena parte del día conectado: chats, videos, juegos, redes. Aquí vas a descubrir cómo cuidar tu identidad en internet, reconocer el ciberacoso, detectar noticias falsas y proteger tus datos, con retos, casos reales y actividades a tu ritmo.</p>
+      <a class="btn" href="#s1">Empezar ${ico('arrowR')}</a>
+    </div>
+    ${heroArt()}
+  </div>
+</section>
+<div class="wrap">
+  <div class="blk grid2">
+    <div class="card">
+      <div class="kicker" style="--c:var(--pink)">Nuestro propósito</div>
+      <h2 class="h2">Usar las redes con cabeza y con corazón</h2>
+      <p class="lead" style="margin:0">Las redes sociales son parte de tu vida y está bien. CONECTA+ existe para que las uses de forma <b>segura, crítica y respetuosa</b>: que sepas qué compartir, a quién creerle y cómo actuar cuando algo no está bien, contigo o con otra persona.</p>
+    </div>
+    <div class="obj">
+      <div class="kicker" style="--c:var(--pink-d)">Objetivo educativo</div>
+      <p style="margin:6px 0 0">Que los estudiantes de séptimo, octavo, noveno y décimo grado <b>comprendan y desarrollen habilidades de pensamiento crítico y responsabilidad digital</b> mediante videos, actividades interactivas, lecturas breves y ejercicios de evaluación, promoviendo el <b>uso seguro, consciente y responsable de las redes sociales</b>.</p>
+    </div>
+  </div>
+
+  <div class="blk">
+    <div class="kicker">¿Qué vas a aprender?</div>
+    <h2 class="h2">Tu recorrido en 5 secciones</h2>
+    <p class="lead">Ve en orden o elige la que quieras. Cada sección tiene una explicación corta, ejemplos de la vida diaria y actividades con respuesta inmediata.</p>
+    <div class="grid5">${PAGES.filter(p=>ACTS[p.id]).map(p=>`
+      <a class="mini" href="#${p.id}" style="--c:${p.c};--cl:${p.cl};text-decoration:none;color:inherit;display:block">
+        <div class="ic">${ico(p.icon)}</div><h4>${p.n}. ${p.short}</h4>
+        <p>${{s1:'Qué dice de ti lo que publicas.',s2:'Cómo identificarlo y qué hacer.',s3:'Cómo verificar antes de compartir.',s4:'Contraseñas y configuración segura.',s5:'Pon a prueba todo lo aprendido.'}[p.id]}</p>
+        <p style="margin-top:8px;font-weight:800;font-size:.82rem" data-cardprog="${p.id}"></p></a>`).join('')}</div>
+  </div>
+
+  <div class="blk card" style="display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap">
+    <div style="flex:1 1 260px">
+      <div class="kicker">¿Cómo funciona?</div>
+      <h3 style="margin:4px 0 6px">Aprende, practica y recibe respuesta al instante</h3>
+      <p class="lead" style="margin:0">Arriba verás tu <b>barra de progreso</b>. Cada actividad te dice al momento si acertaste y por qué. Tus respuestas no se envían a ningún lado: solo se guarda tu avance en este navegador.</p>
+    </div>
+    <a class="btn c" href="#s1" style="--c:var(--blue)">Ir a la sección 1 ${ico('arrowR')}</a>
+  </div>
+</div>`;
+
+function heroArt(){
+  return `<svg class="art" viewBox="0 0 320 300" role="img" aria-label="Celular con notificaciones, un escudo de seguridad y reacciones">
+    <rect x="95" y="20" width="130" height="250" rx="26" fill="#1E2550" stroke="#3D5AFE" stroke-width="3"/>
+    <rect x="106" y="44" width="108" height="200" rx="12" fill="#11163A"/>
+    <rect x="140" y="30" width="40" height="6" rx="3" fill="#3D5AFE" opacity=".6"/>
+    <rect x="116" y="56" width="88" height="40" rx="10" fill="#262E63"/><circle cx="130" cy="76" r="9" fill="#FF4D7E"/><rect x="145" y="68" width="48" height="6" rx="3" fill="#8D96D6"/><rect x="145" y="80" width="34" height="6" rx="3" fill="#565F9E"/>
+    <rect x="116" y="104" width="88" height="62" rx="10" fill="#262E63"/><rect x="124" y="112" width="72" height="34" rx="6" fill="#3D5AFE" opacity=".55"/><rect x="124" y="152" width="50" height="6" rx="3" fill="#8D96D6"/>
+    <rect x="116" y="174" width="88" height="40" rx="10" fill="#262E63"/><circle cx="130" cy="194" r="9" fill="#00A6C7"/><rect x="145" y="186" width="48" height="6" rx="3" fill="#8D96D6"/><rect x="145" y="198" width="30" height="6" rx="3" fill="#565F9E"/>
+    <g class="float"><rect x="18" y="60" width="86" height="40" rx="14" fill="#FF4D7E"/><path d="M38 100l-6 12 16-12z" fill="#FF4D7E"/><path d="M44 78a6 6 0 0 1 9-3 6 6 0 0 1 9 3c-2 5-9 9-9 9s-7-4-9-9z" fill="#fff"/><rect x="68" y="74" width="26" height="6" rx="3" fill="#fff" opacity=".8"/></g>
+    <g class="float d2"><path d="M262 120l-34 13v18c0 18 14 29 34 34 20-5 34-16 34-34v-18z" fill="#3D5AFE"/><path d="M248 154l9 9 18-19" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+    <g class="float d3"><rect x="22" y="196" width="92" height="38" rx="14" fill="#FFFFFF"/><circle cx="42" cy="215" r="9" fill="#F59E0B"/><path d="M38 215h8M42 211v8" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/><rect x="58" y="206" width="44" height="6" rx="3" fill="#11163A" opacity=".7"/><rect x="58" y="218" width="30" height="6" rx="3" fill="#11163A" opacity=".35"/></g>
+    <g class="float"><circle cx="250" cy="236" r="22" fill="#00A6C7"/><path d="M243 236a7 7 0 0 1 14 0v6h-14z M246 236v-4a4 4 0 0 1 8 0v4" stroke="#fff" stroke-width="3" fill="none" stroke-linejoin="round"/></g>
+    <g class="float d2"><circle cx="248" cy="50" r="16" fill="#FFFFFF"/><path d="M248 41v18M239 50h18" stroke="#FF4D7E" stroke-width="5" stroke-linecap="round"/></g>
+  </svg>`;
+}
+
+function sectionHead(p, intro){
+  return `<div class="wrap"><div class="shead" style="--c:${p.c}">
+    <div class="k">Sección ${p.n} de 5</div><h2>${p.title}</h2><p>${intro}</p>
+    <div class="checks">${Object.entries(ACTS[p.id]).map(([k,l])=>`<span data-check="${p.id}.${k}" data-label="${esc(l)}"></span>`).join('')}</div>
+  </div></div>`;
+}
+function sectionNav(p){
+  const i=PAGES.indexOf(p), prev=PAGES[i-1], next=PAGES[i+1];
+  return `<div class="wrap snav">${prev?`<a class="btn ghost" href="#${prev.id}">${ico('arrowL')} ${prev.short}</a>`:'<span></span>'}${next?`<a class="btn c" href="#${next.id}">${next.n?`Sección ${next.n}: `:''}${next.short} ${ico('arrowR')}</a>`:''}</div>`;
+}
+function videoBox(id, title, author){
+  return `<div class="vid" style="background-image:url('https://i.ytimg.com/vi/${id}/hqdefault.jpg')"><button type="button" class="play" data-yt="${id}" aria-label="Reproducir video: ${esc(title)}"><span class="pi">${ico('play')}</span><span>Reproducir video</span></button></div>
+    <p class="vmeta">"${title}" · ${author} · <a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Verlo en YouTube ↗</a></p>`;
+}
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-yt]'); if(!b) return;
+  const f=document.createElement('iframe');
+  f.src=`https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`; f.title='Video de YouTube';
+  f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; f.allowFullscreen=true; f.referrerPolicy='strict-origin-when-cross-origin';
+  b.replaceWith(f);
+});
+
+/* ---------- Sección 1 ---------- */
+VIEW.s1 = (p) => `
+${sectionHead(p,'Todo lo que haces en internet deja rastro: lo que publicas, lo que comentas, a quién sigues, lo que buscas. Ese rastro dice quién eres para los demás, incluso para personas que nunca te han visto.')}
+<div class="wrap">
+  <div class="part"><span class="ptag">${ico('info')} Aprende</span>
+    <div class="card txt">
+      <h3>¿Qué es tu identidad digital?</h3>
+      <p>Es la <span class="hl">imagen de ti que se forma en internet</span> a partir de tus perfiles, fotos, comentarios, likes y de lo que otras personas publican sobre ti. Es como tu "yo" en línea, y muchas veces es lo primero que alguien conoce de ti: un compañero nuevo, un profe o, más adelante, una universidad o un trabajo.</p>
+      <p>La <span class="hl">huella digital</span> es el rastro que dejas cada vez que usas internet. Hay dos tipos:</p>
+      <div class="vs" style="margin-top:12px">
+        <div class="side"><h4 style="color:var(--c)">${ico('hand')} Huella activa</h4><p style="margin:0;color:var(--ink2)">Lo que compartes a propósito.</p>
+          <ul><li>Fotos, videos e historias</li><li>Comentarios y mensajes</li><li>Reacciones, likes y encuestas</li></ul></div>
+        <div class="side"><h4 style="color:var(--pink-d)">${ico('eye')} Huella pasiva</h4><p style="margin:0;color:var(--ink2)">Lo que se registra sin que lo notes.</p>
+          <ul><li>Tu ubicación y los sitios que visitas</li><li>Lo que buscas y cuánto tiempo ves algo</li><li>Datos que guardan las apps</li></ul></div>
+      </div>
+      <div class="grid3" style="margin-top:14px">
+        <div class="mini"><div class="ic">${ico('clock')}</div><h4>Es permanente</h4><p>Aunque borres algo, otros pudieron hacer captura o descargarlo.</p></div>
+        <div class="mini"><div class="ic">${ico('users')}</div><h4>Llega lejos</h4><p>Un contenido se comparte en segundos con personas que no conoces.</p></div>
+        <div class="mini"><div class="ic">${ico('search')}</div><h4>Te representa</h4><p>Lo que publicas hoy puede influir en cómo te ven mañana.</p></div>
+      </div>
+      <div class="tip"><span class="ic">${ico('shield')}</span><p><b>Consecuencias de compartir información personal:</b> si publicas tu dirección, tu colegio, tu horario o dónde estás en tiempo real, cualquiera puede saber dónde encontrarte. También puede usarse para suplantarte o para burlarse de ti.</p></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('play')} Mira</span>
+    <div class="card">
+      <h3>¿Qué es la ciudadanía digital?</h3>
+      <div class="orient">${ico('eye')}<span><b>Antes de ver:</b> fíjate en qué significa "ser ciudadano" también en internet y en las palabras con las que termina el video.</span></div>
+      ${videoBox('QAiN164WQ-o','¿Qué es la Ciudadanía Digital?','Agesic')}
+      <h4 style="margin-top:16px">Después de ver</h4>
+      <div id="q-video1"></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('hand')} Practica</span>
+    <div class="card">
+      <h3>¿Lo publicarías?</h3>
+      <p class="lead">Estas publicaciones están a punto de subirse. Decide en cada una: ¿la publicarías o mejor no? Recibirás respuesta al instante.</p>
+      <div class="posts" id="posts"></div>
+      <div id="posts-tally"></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('chat')} Piensa</span>
+    <div class="card">
+      <h3>Reflexión: ¿qué dice tu huella de ti?</h3>
+      <p class="lead">Imagina que alguien que no te conoce mira tus redes hoy. ¿Qué tres palabras crees que usaría para describirte? ¿Hay algo que cambiarías? Escribe tu respuesta (no se envía a nadie, es solo para ti).</p>
+      <textarea id="ref1" placeholder="Creo que diría que soy… porque publico… Me gustaría cambiar…" aria-label="Tu reflexión"></textarea>
+      <div class="err" id="ref1-err" hidden></div>
+      <div style="margin-top:10px"><button class="btn c" type="button" id="ref1-btn">Guardar mi reflexión</button></div>
+      <div id="ref1-fb"></div>
+    </div>
+  </div>
+</div>
+${sectionNav(p)}`;
+
+const POSTS = [
+  {who:'Valen ✦', at:'Ahora', bg:'#3D5AFE', pic:'Foto en la entrada del colegio con el uniforme y el nombre del colegio visible', cap:'Primer día del año 📚 #NuevoComienzo', ans:'no', why:'Muestra tu colegio y tu uniforme: cualquier desconocido sabría dónde encontrarte entre semana. Puedes compartir el momento sin el nombre ni la fachada del colegio.'},
+  {who:'Juanes_10', at:'Ahora', bg:'#00A6C7', pic:'Medalla de la final del torneo intercolegial (sin datos personales)', cap:'¡Campeones! Gracias equipo 🏆', ans:'si', why:'Es un logro que puedes celebrar: no revela datos personales ni afecta a nadie. Ese tipo de publicaciones construyen una buena huella.'},
+  {who:'Sofi.m', at:'Ahora', bg:'#FF4D7E', pic:'Captura de un chat privado de una amiga contando un secreto', cap:'Jajaja miren lo que me contó 🤭', ans:'no', why:'Lo que alguien te cuenta en privado no es tuyo para publicarlo. Exponer a otra persona puede convertirse en ciberacoso.'},
+  {who:'Tomás R.', at:'Ahora', bg:'#D97706', pic:'Foto del documento de identidad y la boleta del concierto', cap:'¡Ya tengo mi entrada! 🎶', ans:'no', why:'Tu documento y los códigos de la boleta son datos sensibles: con ellos pueden suplantarte o usar tu entrada. Si quieres celebrar, comparte una foto del escenario.'},
+  {who:'Mariana_art', at:'Ahora', bg:'#7C3AED', pic:'Dibujo propio terminado', cap:'Terminé este dibujo después de 3 semanas ✏️ ¿Qué opinan?', ans:'si', why:'Compartir lo que creas es una forma positiva de usar las redes. Es tu contenido y no expone a nadie.'},
+  {who:'Dani_07', at:'En vivo', bg:'#11163A', pic:'Historia con la ubicación en tiempo real: "Solo en casa toda la tarde"', cap:'Plan: series y pizza 🍕', ans:'no', why:'Decir dónde estás y que estás solo, en tiempo real, es información peligrosa. Si quieres compartirlo, hazlo después y sin ubicación.'}
+];
+
+/* ---------- Sección 2 ---------- */
+VIEW.s2 = (p) => `
+${sectionHead(p,'El ciberacoso no es "una broma de internet": es hacer daño a alguien una y otra vez usando el celular, las redes o los juegos en línea. Aquí aprenderás a reconocerlo y, sobre todo, qué hacer.')}
+<div class="wrap">
+  <div class="part"><span class="ptag">${ico('info')} Aprende</span>
+    <div class="card txt">
+      <h3>¿Qué es el ciberacoso?</h3>
+      <p>Es cuando una o varias personas <span class="hl">molestan, humillan, amenazan o excluyen a alguien de forma repetida</span> usando medios digitales. Como pasa en la pantalla, puede seguir a la víctima a todas partes, a cualquier hora, y lo ve mucha gente.</p>
+      <div class="grid3" style="margin-top:12px">
+        <div class="mini"><div class="ic">${ico('chat')}</div><h4>Insultos y burlas</h4><p>Mensajes, comentarios o memes para ridiculizar a alguien.</p></div>
+        <div class="mini"><div class="ic">${ico('users')}</div><h4>Exclusión</h4><p>Sacar a alguien de los grupos a propósito o pedir a otros que lo ignoren.</p></div>
+        <div class="mini"><div class="ic">${ico('eye')}</div><h4>Difundir sin permiso</h4><p>Compartir fotos, videos o chats privados para avergonzar.</p></div>
+        <div class="mini"><div class="ic">${ico('id')}</div><h4>Suplantación</h4><p>Crear perfiles falsos o entrar a la cuenta de otro para publicar.</p></div>
+        <div class="mini"><div class="ic">${ico('alert')}</div><h4>Amenazas</h4><p>Mensajes que intimidan o dan miedo.</p></div>
+        <div class="mini"><div class="ic">${ico('heart')}</div><h4>Consecuencias</h4><p>Tristeza, ansiedad, miedo a ir al colegio, aislamiento y baja autoestima.</p></div>
+      </div>
+      <div class="tip"><span class="ic">${ico('search')}</span><p><b>¿Cómo identificarlo?</b> Pregúntate: ¿se repite?, ¿hay intención de hacer daño?, ¿la otra persona se siente mal o con miedo? Si la respuesta es sí, no es un chiste: es ciberacoso.</p></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('play')} Mira</span>
+    <div class="card">
+      <h3>¿Cómo actuar ante el ciberacoso?</h3>
+      <div class="orient">${ico('eye')}<span><b>Antes de ver:</b> el video no tiene voz, la historia se cuenta con imágenes. Observa qué hace Silvia en cada momento: con la solicitud del desconocido, con la foto y con la amenaza.</span></div>
+      ${videoBox('tVAjiyNzYq0','¿Cómo actuar ante el ciberacoso? Ignora, bloquea, pide ayuda y denuncia','PantallasAmigas')}
+      <h4 style="margin-top:16px">Después de ver</h4>
+      <div id="q-video2"></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('hand')} Practica</span>
+    <div class="card">
+      <h3>¿Qué harías? Un caso en el chat del curso</h3>
+      <p class="lead">Lee la conversación y elige qué harías en cada momento. Cada decisión tiene una consecuencia.</p>
+      <div id="chatsim"></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('shield')} Pide ayuda</span>
+    <div class="card">
+      <h3>Si te pasa o lo ves: ignora, bloquea, pide ayuda y denuncia</h3>
+      <div class="steps4" style="margin:12px 0 16px">
+        <div class="step4"><span class="n">1</span><div><h4>No respondas</h4><p>Contestar con rabia suele empeorar las cosas.</p></div></div>
+        <div class="step4"><span class="n">2</span><div><h4>Guarda pruebas</h4><p>Haz capturas con la fecha y el usuario.</p></div></div>
+        <div class="step4"><span class="n">3</span><div><h4>Bloquea y reporta</h4><p>Todas las redes tienen opciones para bloquear y denunciar.</p></div></div>
+        <div class="step4"><span class="n">4</span><div><h4>Cuéntale a un adulto</h4><p>Tu familia, un profe o la orientación del colegio. No estás solo ni sola.</p></div></div>
+      </div>
+      <div class="help">
+        <a href="https://www.icbf.gov.co/" target="_blank" rel="noopener"><span class="ic">${ico('phone')}</span><span><b>Línea 141 · ICBF</b><small>Línea gratuita de protección a niños, niñas y adolescentes.</small></span></a>
+        <a href="https://www.teprotejo.org/" target="_blank" rel="noopener"><span class="ic">${ico('shield')}</span><span><b>Te Protejo Colombia</b><small>Canal para reportar situaciones que afectan a menores en internet.</small></span></a>
+        <a href="https://caivirtual.policia.gov.co/" target="_blank" rel="noopener"><span class="ic">${ico('alert')}</span><span><b>CAI Virtual · Policía Nacional</b><small>Para denunciar amenazas y delitos informáticos.</small></span></a>
+        <a href="https://www.enticconfio.gov.co/" target="_blank" rel="noopener"><span class="ic">${ico('info')}</span><span><b>En TIC Confío+</b><small>Programa del MinTIC sobre uso seguro y responsable de internet.</small></span></a>
+      </div>
+    </div>
+  </div>
+</div>
+${sectionNav(p)}`;
+
+/* ---------- Sección 3 ---------- */
+VIEW.s3 = (p) => `
+${sectionHead(p,'Todos los días te llegan noticias, cadenas, capturas y videos. Algunos son falsos o están sacados de contexto. Compartirlos sin revisar ayuda a que la mentira se riegue.')}
+<div class="wrap">
+  <div class="part"><span class="ptag">${ico('info')} Aprende</span>
+    <div class="card txt">
+      <h3>¿Qué son las noticias falsas?</h3>
+      <p>Son contenidos que <span class="hl">parecen noticias pero tienen información falsa o engañosa</span>. A veces se crean a propósito para confundir, ganar clics, vender algo o generar odio (desinformación); otras veces alguien comparte algo falso creyendo que es cierto.</p>
+      <p>Se riegan rápido porque nos <b>hacen sentir algo fuerte</b>: miedo, rabia o risa. Y cuando sentimos algo fuerte, compartimos sin pensar.</p>
+      <h4 style="margin-top:14px">Señales de alerta</h4>
+      <div class="grid3">
+        <div class="mini"><div class="ic">${ico('alert')}</div><h4>Titular exagerado</h4><p>MAYÚSCULAS, signos de exclamación, "¡urgente!", "lo que no quieren que sepas".</p></div>
+        <div class="mini"><div class="ic">${ico('users')}</div><h4>Sin fuente clara</h4><p>No dice quién lo publica ni de dónde salen los datos.</p></div>
+        <div class="mini"><div class="ic">${ico('clock')}</div><h4>Fecha vieja</h4><p>Una noticia real de hace años presentada como si fuera de hoy.</p></div>
+        <div class="mini"><div class="ic">${ico('eye')}</div><h4>Imagen fuera de contexto</h4><p>Una foto real usada para contar otra historia.</p></div>
+        <div class="mini"><div class="ic">${ico('link')}</div><h4>Enlace raro</h4><p>Direcciones que imitan medios conocidos con letras cambiadas.</p></div>
+        <div class="mini"><div class="ic">${ico('chat')}</div><h4>"Compártelo ya"</h4><p>Te presiona para reenviarlo antes de que lo pienses.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('search')} Estrategia</span>
+    <div class="card">
+      <h3>Tu ruta de verificación en 4 pasos</h3>
+      <div class="steps4" style="margin-top:12px">
+        <div class="step4"><span class="n">1</span><div><h4>Pausa</h4><p>Si te provoca una emoción fuerte, detente antes de compartir.</p></div></div>
+        <div class="step4"><span class="n">2</span><div><h4>Revisa la fuente</h4><p>¿Quién lo publica? ¿Es un medio o una cuenta confiable?</p></div></div>
+        <div class="step4"><span class="n">3</span><div><h4>Compara</h4><p>Busca si otros medios serios dicen lo mismo.</p></div></div>
+        <div class="step4"><span class="n">4</span><div><h4>Decide</h4><p>Si no puedes comprobarlo, no lo compartas.</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('hand')} Practica</span>
+    <div class="card">
+      <h3>¿Real o sospechosa?</h3>
+      <p class="lead">Estas publicaciones son <b>inventadas para practicar</b>. Busca las señales de alerta y decide si es confiable o sospechosa.</p>
+      <div class="newsfeed" id="news"></div>
+      <div id="news-tally"></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('hand')} Practica</span>
+    <div class="card">
+      <h3>Ordena la ruta de verificación</h3>
+      <p class="lead">Te llegó por WhatsApp un audio que dice que mañana cancelan las clases. Toca los pasos en el orden correcto.</p>
+      <div id="ruta"></div>
+    </div>
+  </div>
+</div>
+${sectionNav(p)}`;
+
+const NEWS = [
+  {src:'WhatsApp · Reenviado muchas veces', hd:'¡¡URGENTE!! A partir de mañana van a cobrar por usar WhatsApp. Reenvía a 10 contactos o tu cuenta se borra', bd:'Mensaje en cadena, sin autor ni enlace a una fuente.', ans:'sos', why:'Presiona con "urgente", pide reenviar y no tiene ninguna fuente. Es el formato típico de las cadenas falsas.'},
+  {src:'Alcaldía local · Cuenta oficial verificada', hd:'Mañana habrá jornada de vacunación gratuita en los parques del barrio de 8:00 a. m. a 4:00 p. m.', bd:'Incluye horario, lugares y un enlace a la página oficial de la alcaldía.', ans:'real', why:'Viene de una cuenta oficial, da datos concretos y enlaza a una página verificable. Aun así, si tienes dudas, confírmalo en la página oficial.'},
+  {src:'noticias-caracool.co', hd:'Científicos confirman que comer helado todos los días mejora las notas un 200 %', bd:'No menciona qué científicos ni dónde se publicó el estudio.', ans:'sos', why:'El dominio imita a un medio conocido con una letra de más, el dato es exagerado y no dice quién hizo el estudio.'},
+  {src:'Cuenta de memes · @soloverdades_ya', hd:'Foto del colegio inundado: "¡Así está hoy! No hay clases"', bd:'La foto es de una inundación de hace 3 años en otra ciudad.', ans:'sos', why:'Es una imagen real usada fuera de contexto. Antes de creerla, busca la foto en internet o confirma con el colegio.'}
+];
+
+/* ---------- Sección 4 ---------- */
+VIEW.s4 = (p) => `
+${sectionHead(p,'Tus datos personales valen mucho: con ellos alguien puede encontrarte, hacerse pasar por ti o entrar a tus cuentas. Aprende a protegerlos con contraseñas seguras y una buena configuración de privacidad.')}
+<div class="wrap">
+  <div class="part"><span class="ptag">${ico('info')} Aprende</span>
+    <div class="card txt">
+      <h3>¿Qué datos debes cuidar?</h3>
+      <div class="vs" style="margin-top:8px">
+        <div class="side"><h4 style="color:var(--ok)">${ico('check')} Puedes compartir con cuidado</h4><ul><li>Tu nombre o apodo</li><li>Tus gustos (música, series, deportes)</li><li>Logros y cosas que creas</li></ul></div>
+        <div class="side"><h4 style="color:var(--bad)">${ico('lock')} Mejor no compartas</h4><ul><li>Dirección, teléfono y colegio</li><li>Número de documento y fotos de documentos</li><li>Contraseñas y códigos de verificación</li><li>Ubicación en tiempo real</li></ul></div>
+      </div>
+      <h3 style="margin-top:18px">Contraseñas seguras</h3>
+      <div class="grid2" style="margin-top:10px">
+        <div class="mini"><div class="ic">${ico('key')}</div><h4>Larga, mejor que rara</h4><p>Usa una <b>frase</b> de varias palabras: "MiPerroComeMango_2026!" es más fuerte que "P@ss1".</p></div>
+        <div class="mini"><div class="ic">${ico('refresh')}</div><h4>Una por cuenta</h4><p>Si repites la misma y se filtra una vez, entran a todas tus cuentas.</p></div>
+        <div class="mini"><div class="ic">${ico('shield')}</div><h4>Verificación en dos pasos</h4><p>Actívala: además de la contraseña, te pide un código en tu celular.</p></div>
+        <div class="mini"><div class="ic">${ico('ban')}</div><h4>No la compartas</h4><p>Ni con tu mejor amigo o amiga. Y nunca des códigos que te lleguen por SMS.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('hand')} Practica</span>
+    <div class="card">
+      <h3>Crea una contraseña fuerte</h3>
+      <p class="lead">Escribe una contraseña <b>inventada</b> y mira cómo cambia su nivel. Completa la actividad cuando llegue a "Muy fuerte".</p>
+      <div class="pw"><input id="pwi" type="text" autocomplete="off" spellcheck="false" placeholder="Ejemplo: MiGatoBailaSalsa_2026!" aria-label="Contraseña de práctica"><button class="btn ghost sm" type="button" id="pwgen">${ico('refresh')} Darme una idea</button></div>
+      <div class="warn">${ico('alert')} No escribas una contraseña real que uses. Esto es solo para practicar y no se guarda.</div>
+      <div class="meter"><i id="pwm"></i></div>
+      <div id="pwl" style="font-weight:900">Escribe para empezar</div>
+      <ul class="rules" id="pwr"></ul>
+      <div id="pwfb"></div>
+    </div>
+  </div>
+
+  <div class="part"><span class="ptag">${ico('hand')} Practica</span>
+    <div class="card">
+      <h3>Configura tu perfil</h3>
+      <p class="lead">Este es el perfil de <b>Laura, 14 años</b>. Activa o desactiva cada opción para que su cuenta sea lo más segura posible. El marcador cambia al instante.</p>
+      <div class="profile"><div class="settings" id="sets"></div><div class="score" id="scorebox"></div></div>
+    </div>
+  </div>
+</div>
+${sectionNav(p)}`;
+
+const SETTINGS = [
+  {k:'privada', t:'Cuenta privada', d:'Solo tus seguidores aprobados ven tus publicaciones.', safe:true, why:'Con la cuenta privada decides quién ve lo que publicas.'},
+  {k:'ubic', t:'Compartir mi ubicación en las publicaciones', d:'Muestra dónde tomaste cada foto o historia.', safe:false, why:'La ubicación en tus publicaciones revela tus rutinas y los lugares donde estás.'},
+  {k:'etiq', t:'Revisar etiquetas antes de que aparezcan', d:'Apruebas las fotos en las que te etiquetan.', safe:true, why:'Así nadie te etiqueta en algo que no quieres que se vea en tu perfil.'},
+  {k:'dm', t:'Mensajes directos de cualquier persona', d:'Desconocidos pueden escribirte.', safe:false, why:'Limita los mensajes a personas que sigues para evitar acoso y engaños.'},
+  {k:'tel', t:'Mostrar mi número de teléfono en el perfil', d:'Visible para quien visite tu perfil.', safe:false, why:'Tu número es un dato personal: con él pueden contactarte o intentar robar tu cuenta.'},
+  {k:'2fa', t:'Verificación en dos pasos', d:'Pide un código extra al iniciar sesión.', safe:true, why:'Aunque alguien descubra tu contraseña, no podrá entrar sin el código.'}
+];
+
+/* ---------- Sección 5 ---------- */
+VIEW.s5 = (p) => `
+${sectionHead(p,'Llegó el momento de juntar todo: una evaluación con situaciones cotidianas, una autoevaluación para mirarte con honestidad y tu compromiso personal para usar las redes de forma responsable.')}
+<div class="wrap">
+  <div class="part"><span class="ptag">${ico('star')} Evaluación</span>
+    <div class="card">
+      <h3>Evaluación: situaciones de la vida real</h3>
+      <p class="lead">8 preguntas sobre todo el recorrido. Al responder verás si acertaste y por qué.</p>
+      <div id="quiz"></div>
+    </div>
+  </div>
+  <div class="part"><span class="ptag">${ico('eye')} Autoevaluación</span>
+    <div class="card">
+      <h3>¿Cómo uso yo las redes?</h3>
+      <p class="lead">Responde con sinceridad. No hay respuestas buenas o malas: es para que te conozcas mejor.</p>
+      <div class="likert" id="likert"></div>
+      <div id="likert-fb"></div>
+    </div>
+  </div>
+  <div class="part"><span class="ptag">${ico('heart')} Reflexión final</span>
+    <div class="card">
+      <h3>Mi compromiso CONECTA+</h3>
+      <p class="lead"><b>¿Qué cambiarías desde hoy en tu forma de usar las redes sociales y por qué?</b> Escribe tu respuesta y elige al menos 3 compromisos.</p>
+      <textarea id="pact-txt" placeholder="Desde hoy voy a… porque…" aria-label="Tu reflexión final"></textarea>
+      <h4 style="margin:14px 0 8px">Elige tus compromisos</h4>
+      <div class="commit" id="commits"></div>
+      <div class="err" id="pact-err" hidden></div>
+      <div style="margin-top:12px"><button class="btn c" type="button" id="pact-btn">Crear mi compromiso</button></div>
+      <div id="pact-out"></div>
+    </div>
+  </div>
+</div>
+${sectionNav(p)}`;
+
+const QUIZ = [
+  {q:'Tu amigo quiere subir una historia con la ubicación en vivo diciendo que está solo en casa. ¿Qué le dices?', o:['Que lo suba, es normal','Que la suba después y sin ubicación','Que la publique solo para mejores amigos con la ubicación'], a:1, why:'La ubicación en tiempo real combinada con "estoy solo" es un riesgo. Compartirlo después y sin ubicación protege su seguridad.'},
+  {q:'¿Cuál de estas es parte de tu huella digital pasiva?', o:['Un comentario que escribiste','Los sitios que visitas y lo que buscas','Una foto que subiste'], a:1, why:'La huella pasiva es lo que se registra sin que lo publiques a propósito, como tu historial de navegación.'},
+  {q:'En el grupo del curso circula un meme que se burla de una compañera y todos lo comparten. ¿Qué es lo más responsable?', o:['Reenviarlo para no quedar mal','No compartirlo, apoyar a la compañera y avisar a un adulto','Reaccionar con risa pero no reenviarlo'], a:1, why:'Reírse o reenviar alimenta el ciberacoso. No compartir, apoyar a la víctima y avisar a un adulto ayuda a detenerlo.'},
+  {q:'Alguien te amenaza por mensajes privados. ¿Qué debes hacer primero?', o:['Responder con otra amenaza','Borrar todo para olvidarlo','Guardar pruebas, bloquear y contarle a un adulto o denunciar'], a:2, why:'Las capturas sirven como prueba. Bloquear te protege y un adulto o las autoridades pueden ayudarte a denunciar.'},
+  {q:'Te llega una noticia impactante sin autor y con el texto "¡Compártelo antes de que la borren!". ¿Qué haces?', o:['La comparto rápido','Hago una pausa y busco si medios confiables dicen lo mismo','La comparto pero aclaro que no sé si es cierta'], a:1, why:'Pausar y comparar fuentes es la clave. Compartir "por si acaso" también ayuda a regar desinformación.'},
+  {q:'¿Cuál de estas contraseñas es más segura?', o:['juan2010','Contraseña123','MiPerroComeMango_2026!'], a:2, why:'Una frase larga con varias palabras, números y símbolos es mucho más difícil de adivinar.'},
+  {q:'¿Para qué sirve la verificación en dos pasos?', o:['Para que tu cuenta cargue más rápido','Para que, aunque sepan tu contraseña, no puedan entrar sin un código extra','Para ver quién visita tu perfil'], a:1, why:'Agrega una segunda barrera: un código que solo llega a tu celular.'},
+  {q:'¿Qué significa "Antes de publicar, piensa. Antes de compartir, comprende"?', o:['Que es mejor no usar redes sociales','Que debemos pensar en las consecuencias y verificar la información antes de difundirla','Que solo los adultos deben publicar'], a:1, why:'Ese es el corazón de CONECTA+: usar las redes, pero de forma consciente, crítica y responsable.'}
+];
+const LIKERT = [
+  'Antes de publicar algo, pienso si me podría afectar a mí o a otra persona.',
+  'Reviso la fuente de una noticia antes de compartirla.',
+  'Uso contraseñas diferentes y no se las doy a nadie.',
+  'Si veo que molestan a alguien en internet, no participo y busco ayuda.',
+  'Tengo configurada la privacidad de mis redes.'
+];
+const COMMITS = [
+  'Pensar antes de publicar fotos o datos personales.',
+  'Verificar la fuente antes de compartir una noticia.',
+  'No reenviar contenido que se burle de alguien.',
+  'Apoyar a quien sufre ciberacoso y avisar a un adulto.',
+  'Usar contraseñas seguras y activar la verificación en dos pasos.',
+  'Revisar la configuración de privacidad de mis redes.'
+];
+
+/* ---------- Créditos ---------- */
+VIEW.creditos = () => `
+<div class="wrap">
+  <div class="shead" style="--c:#FF4D7E"><div class="k">CONECTA+</div><h2>Créditos y referencias</h2><p>Sitio web educativo elaborado como taller final del curso TICE (Tecnologías de la Información y la Comunicación en Educación), Facultad de Educación.</p></div>
+  <div class="part grid2">
+    <div class="card"><h3>Autoras</h3><p style="margin:0">Fabiana Guerra y Laura Marcelo<br><span style="color:var(--muted)">Grupo 2 · Curso TICE</span></p></div>
+    <div class="card"><h3>Diseño e ilustraciones</h3><p style="margin:0">Ilustraciones, íconos e infografías elaborados por el grupo para este sitio. Las publicaciones, noticias y perfiles de las actividades son <b>ficticios</b> y fueron creados con fines educativos.</p></div>
+  </div>
+  <div class="card part">
+    <h3>Videos</h3>
+    <ul class="refs">
+      <li>Agesic. (s. f.). <i>¿Qué es la Ciudadanía Digital?</i> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=QAiN164WQ-o" target="_blank" rel="noopener">https://www.youtube.com/watch?v=QAiN164WQ-o</a></li>
+      <li>PantallasAmigas. (s. f.). <i>¿Cómo actuar ante el ciberacoso? Ignora, bloquea, pide ayuda y denuncia</i> [Video]. YouTube. <a href="https://www.youtube.com/watch?v=tVAjiyNzYq0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=tVAjiyNzYq0</a></li>
+    </ul>
+    <h3 style="margin-top:16px">Fuentes de consulta</h3>
+    <ul class="refs">
+      <li>Ministerio de Tecnologías de la Información y las Comunicaciones (MinTIC). <i>En TIC Confío+</i>. <a href="https://www.enticconfio.gov.co/" target="_blank" rel="noopener">https://www.enticconfio.gov.co/</a></li>
+      <li>UNICEF. <i>Ciberacoso: qué es y cómo detenerlo</i>. <a href="https://www.unicef.org/es/end-violence/ciberacoso-que-es-y-como-detenerlo" target="_blank" rel="noopener">https://www.unicef.org/es/end-violence/ciberacoso-que-es-y-como-detenerlo</a></li>
+      <li>Te Protejo Colombia. <a href="https://www.teprotejo.org/" target="_blank" rel="noopener">https://www.teprotejo.org/</a></li>
+      <li>Policía Nacional de Colombia. <i>CAI Virtual</i>. <a href="https://caivirtual.policia.gov.co/" target="_blank" rel="noopener">https://caivirtual.policia.gov.co/</a></li>
+      <li>Instituto Colombiano de Bienestar Familiar (ICBF). <i>Línea 141</i>. <a href="https://www.icbf.gov.co/" target="_blank" rel="noopener">https://www.icbf.gov.co/</a></li>
+      <li>PantallasAmigas. <a href="https://www.pantallasamigas.net/" target="_blank" rel="noopener">https://www.pantallasamigas.net/</a></li>
+    </ul>
+  </div>
+  <div class="card part" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+    <p style="margin:0;flex:1 1 240px;color:var(--ink2)">Tu avance se guarda solo en este navegador. Si este equipo lo usa otra persona, puedes reiniciarlo.</p>
+    <button class="btn ghost" type="button" id="resetAll">${ico('refresh')} Reiniciar mi progreso</button>
+  </div>
+</div>
+${sectionNav(PAGES[PAGES.length-1])}`;
+
+/* =========================================================
+   ACTIVIDADES
+   ========================================================= */
+// Preguntas de opción múltiple con respuesta inmediata
+function mcq(box, items, sec, key, opts={}){
+  let ans=0, ok=0;
+  box.innerHTML = items.map((it,i)=>`<div class="q" data-i="${i}"><div class="qt"><span class="num">${i+1}</span>${it.q}</div>
+    <div class="opts ${it.o.some(o=>o.length>38)?'one':''}">${it.o.map((o,j)=>`<button type="button" class="opt" data-j="${j}"><span class="l">${'ABC'[j]}</span><span>${o}</span></button>`).join('')}</div><div class="fbx"></div></div>`).join('')
+    + `<div class="tally"><span data-tt></span><span class="sp"></span><button class="btn ghost sm" type="button" data-again>${ico('refresh')} Reintentar</button></div><div data-res></div>`;
+  const upd=()=>{
+    $('[data-tt]',box).textContent=`Respondidas ${ans} de ${items.length} · Correctas ${ok}`;
+    if(ans===items.length){
+      const pct=ok/items.length;
+      $('[data-res]',box).innerHTML=`<div class="res ${pct>=.7?'good':'mid'}"><span class="big">${ok}/${items.length}</span><span>${pct===1?'¡Excelente! Dominas el tema.':pct>=.7?'¡Muy bien! Revisa las explicaciones de las que fallaste.':'Vas en camino. Lee las explicaciones y vuelve a intentarlo.'}${opts.scoreNote?` ${opts.scoreNote(ok)}`:''}</span></div>`;
+      complete(sec,key);
+    }
+  };
+  $$('.q',box).forEach(q=>{
+    const it=items[+q.dataset.i];
+    $$('.opt',q).forEach(b=>b.addEventListener('click',()=>{
+      const good=+b.dataset.j===it.a; q.classList.add('locked'); b.classList.add(good?'ok':'bad');
+      if(!good) $(`.opt[data-j="${it.a}"]`,q).classList.add('ok');
+      ans++; if(good) ok++;
+      $('.fbx',q).innerHTML=fb(good?'ok':'bad', good?'¡Correcto!':`No exactamente. La respuesta es la ${'ABC'[it.a]}.`, ' '+it.why);
+      upd();
+    }));
+  });
+  $('[data-again]',box).addEventListener('click',()=>mcq(box,items,sec,key,opts));
+  upd();
+}
+
+// Decidir sobre tarjetas (publicaciones / noticias)
+function decide(box, tallyBox, items, render, choices, sec, key){
+  let ans=0, ok=0;
+  box.innerHTML=items.map((it,i)=>render(it,i)).join('');
+  const upd=()=>{
+    tallyBox.innerHTML=`<div class="tally"><span>Decididas ${ans} de ${items.length} · Correctas ${ok}</span><span class="sp"></span><button class="btn ghost sm" type="button" data-again>${ico('refresh')} Reintentar</button></div>${ans===items.length?`<div class="res ${ok/items.length>=.7?'good':'mid'}"><span class="big">${ok}/${items.length}</span><span>${ok===items.length?'¡Perfecto! Tienes muy buen criterio.':'¡Bien! Lee las explicaciones de las que fallaste: ahí está la clave.'}</span></div>`:''}`;
+    $('[data-again]',tallyBox).addEventListener('click',()=>decide(box,tallyBox,items,render,choices,sec,key));
+    if(ans===items.length) complete(sec,key);
+  };
+  $$('[data-card]',box).forEach(card=>{
+    const it=items[+card.dataset.card];
+    $$('[data-v]',card).forEach(b=>b.addEventListener('click',()=>{
+      const good=b.dataset.v===it.ans; card.classList.add('locked'); b.classList.add(good?'ok':'bad');
+      if(!good) $(`[data-v="${it.ans}"]`,card).classList.add('ok');
+      ans++; if(good) ok++;
+      card.insertAdjacentHTML('beforeend', fb(good?'ok':'bad', good?choices.ok(it):choices.bad(it), ' '+it.why));
+      upd();
+    }));
+  });
+  upd();
+}
+
+function initS1(){
+  mcq($('#q-video1'), [
+    {q:'Según el video, ¿cómo debemos usar el entorno digital?', o:['De forma rápida y sin restricciones','De forma responsable, crítica, creativa y participativa','Solo para entretenernos'], a:1, why:'El video termina invitando a hacer un uso responsable, crítico, creativo y participativo del entorno digital.'},
+    {q:'¿Cuál es una habilidad de la ciudadanía digital que menciona el video?', o:['Ser críticos ante la información que recibimos','Tener muchos seguidores','Publicar todos los días'], a:0, why:'El video habla de ser críticos con la información, conocer nuestros derechos y saber defenderlos en internet.'}
+  ], 's1','video1');
+  decide($('#posts'), $('#posts-tally'), shuffle(POSTS), (it,i)=>`<article class="post" data-card="${i}">
+      <div class="ph"><span class="av" style="background:${it.bg}">${esc(it.who[0])}</span><span class="who">${esc(it.who)}<small>${it.at}</small></span></div>
+      <div class="pic" style="background:${it.bg}">${ico('eye')}<span style="font-size:.88rem">${it.pic}</span></div>
+      <div class="cap">${it.cap}</div>
+      <div class="acts"><button type="button" data-v="si">${ico('check')} Publicar</button><button type="button" data-v="no">${ico('x')} Mejor no</button></div></article>`,
+    {ok:it=>it.ans==='si'?'¡Bien! Se puede publicar.':'¡Bien decidido!', bad:it=>it.ans==='si'?'Esta sí se podía publicar.':'Mejor no publicarla.'}, 's1','publicar');
+  reflection('ref1', 's1','huella', 'Gracias por pensarlo. Revisar tu huella de vez en cuando (por ejemplo, buscando tu nombre en internet) te ayuda a cuidar la imagen que das.');
+}
+function reflection(id, sec, key, msg){
+  const t=$('#'+id), err=$('#'+id+'-err'), out=$('#'+id+'-fb');
+  t.addEventListener('input',()=>{ err.hidden=true; });
+  $('#'+id+'-btn').addEventListener('click',()=>{
+    if(t.value.trim().split(/\s+/).filter(Boolean).length<8){ err.textContent='Escribe un poco más (al menos 8 palabras) para completar la reflexión.'; err.hidden=false; t.focus(); return; }
+    out.innerHTML=fb('ok','¡Reflexión completada!',' '+msg); complete(sec,key);
+  });
+}
+
+function initS2(){
+  mcq($('#q-video2'), [
+    {q:'¿Qué hizo Silvia con la solicitud del desconocido que le escribió "estás buenísima"?', o:['La aceptó','La ignoró','Le respondió con un insulto'], a:1, why:'Silvia ignoró la solicitud: no hay que aceptar a desconocidos que te escriben de forma irrespetuosa.'},
+    {q:'¿Qué publicó Pedro después de que Silvia lo aceptó como amigo?', o:['Una foto en la que la etiquetó como si se hubieran besado','Un mensaje de cumpleaños','Una invitación a una fiesta'], a:0, why:'Pedro la etiquetó en "El beso de Silvia Ortiz y Pedro López": un contenido que la expone sin su permiso.'},
+    {q:'Cuando Pedro le envió una amenaza ("Vigila tu espalda"), ¿qué hizo Silvia?', o:['Lo ignoró y no le contó a nadie','Le pidió perdón','Acudió a la policía a denunciar'], a:2, why:'Ante una amenaza hay que denunciar. Antes, Silvia ya había reportado la publicación, ajustado su privacidad y bloqueado a Pedro.'}
+  ], 's2','video2');
+  chatSim();
+}
+const CHAT = {
+  start:{msgs:[['them','Camilo','Jajaja miren la foto que le tomé a Andrés dormido en clase 😂'],['img','','Foto de Andrés dormido, editada con orejas de burro'],['them','Sara','JAJAJA súbanla a TikTok'],['them','Camilo','@tú ¿la subo?']],
+    q:'¿Qué respondes?', ops:[
+      {t:'"Jaja sí, súbela"', next:'bad1'},
+      {t:'"No, eso no está bien. Bórrala, a Andrés no le va a gustar."', next:'good1'},
+      {t:'No digo nada y salgo del chat', next:'mid1'}]},
+  bad1:{msgs:[['me','Tú','Jaja sí, súbela'],['sys','','La foto ya tiene 300 vistas y comentarios burlándose de Andrés.'],['them','Andrés (en privado)','¿Por qué hicieron eso? Todo el colegio se está riendo de mí 😔']],
+    fb:['bad','Así el ciberacoso crece.','Al apoyar la burla, más personas la vieron y Andrés salió muy afectado. Todavía puedes ayudar: pide que la borren y apóyalo.'],
+    q:'¿Y ahora qué haces?', ops:[{t:'Le escribo a Andrés para apoyarlo y le pido a Camilo que la borre', next:'fix'},{t:'Nada, ya está publicada', next:'end_bad'}]},
+  mid1:{msgs:[['sys','','Saliste del chat. Camilo subió la foto igual.']],
+    fb:['info','No participar está bien, pero no es suficiente.','Quedarte callado no detuvo la burla. Puedes hacer más por Andrés.'],
+    q:'¿Haces algo más?', ops:[{t:'Le cuento a la directora de grupo y le escribo a Andrés', next:'fix'},{t:'No, no es mi problema', next:'end_bad'}]},
+  good1:{msgs:[['me','Tú','No, eso no está bien. Bórrala, a Andrés no le va a gustar.'],['them','Sara','Uy, tienes razón…'],['them','Camilo','Ok, ya la borré 🙄']],
+    fb:['ok','¡Bien hecho!','Te pusiste del lado de Andrés y frenaste la burla antes de que se riegue.'],
+    q:'Andrés se enteró de lo que pasó. ¿Qué haces?', ops:[{t:'Le escribo para contarle y decirle que puede contar conmigo', next:'end_good'},{t:'Hago como si nada', next:'end_ok'}]},
+  fix:{msgs:[['me','Tú','Andrés, lo siento mucho. No estás solo, ya le pedí a Camilo que la borre y le contamos a la profe.'],['them','Andrés (en privado)','Gracias, en serio 🙏']],
+    fb:['ok','¡Bien! Reparaste el daño.','Apoyar a la víctima y buscar a un adulto ayuda a detener el ciberacoso.'], end:true},
+  end_good:{msgs:[['me','Tú','Andrés, querían subir una foto tuya, pero ya la borraron. Si pasa algo más, me dices.'],['them','Andrés (en privado)','Gracias por defenderme 💙']],
+    fb:['ok','¡Excelente decisión!','Frenaste el ciberacoso y apoyaste a tu compañero. Eso es ser un buen ciudadano digital.'], end:true},
+  end_ok:{msgs:[['sys','','La foto se borró, pero Andrés no sabe que alguien lo defendió.']],
+    fb:['info','Estuvo bien, pero podías hacer un poco más.','Contarle a Andrés y ofrecerle tu apoyo lo hace sentir acompañado.'], end:true},
+  end_bad:{msgs:[['sys','','Andrés no quiere volver al colegio. La foto sigue circulando.']],
+    fb:['bad','Esta decisión deja a Andrés solo.','Quien ve el acoso y no hace nada también influye. Vuelve a intentarlo y elige ayudar.'], end:true}
+};
+function chatSim(){
+  const box=$('#chatsim');
+  box.innerHTML=`<div class="phone"><div class="bar"><span class="av" style="background:var(--pink)">8B</span><span>Grupo 8.ºB 📚<small>32 participantes</small></span></div><div class="chat" id="chatlog"></div><div id="chatfb" style="padding:0 12px" aria-live="polite"></div><div class="choices" id="chatops"></div></div>`;
+  const log=$('#chatlog',box), ops=$('#chatops',box), out=$('#chatfb',box);
+  const show=(id)=>{
+    const n=CHAT[id];
+    n.msgs.forEach(([type,who,txt])=>{
+      log.insertAdjacentHTML('beforeend', type==='img' ? `<div class="msg img"><div class="fake">${ico('eye')} ${txt}</div></div>` : type==='sys' ? `<div class="msg sys">${txt}</div>` : `<div class="msg ${type}">${who&&type!=='me'?`<small>${who}</small>`:''}${txt}</div>`);
+    });
+    log.scrollTop=log.scrollHeight;
+    out.innerHTML=n.fb?fb(...n.fb.slice(0,1),n.fb[1],' '+n.fb[2]):'';
+    if(n.end){
+      ops.innerHTML=`<button type="button" data-restart>${ico('refresh')} Volver a empezar el caso</button>`;
+      $('[data-restart]',ops).addEventListener('click',chatSim);
+      complete('s2','chat'); return;
+    }
+    ops.innerHTML=`<span class="lbl">${n.q}</span>`+n.ops.map((o,i)=>`<button type="button" data-o="${i}">${o.t}</button>`).join('');
+    $$('[data-o]',ops).forEach(b=>b.addEventListener('click',()=>show(n.ops[+b.dataset.o].next)));
+  };
+  show('start');
+}
+
+function initS3(){
+  decide($('#news'), $('#news-tally'), NEWS, (it,i)=>`<article class="news" data-card="${i}">
+      <div class="src"><span class="av" style="width:28px;height:28px;background:var(--amber)">${ico('news')}</span>${esc(it.src)}</div>
+      <div class="hd">${esc(it.hd)}</div><p class="bd">${esc(it.bd)}</p>
+      <div class="acts"><button type="button" data-v="real">${ico('check')} Confiable</button><button type="button" data-v="sos">${ico('alert')} Sospechosa</button></div></article>`,
+    {ok:it=>it.ans==='real'?'¡Correcto! Es confiable.':'¡Correcto! Es sospechosa.', bad:it=>it.ans==='real'?'Esta era confiable.':'Esta era sospechosa.'}, 's3','realfalsa');
+  orderAct($('#ruta'), ['Hago una pausa antes de reenviarlo','Reviso quién lo envió y de dónde salió','Comparo con la cuenta oficial del colegio','Si no lo puedo comprobar, no lo comparto'], 's3','ruta');
+}
+function orderAct(box, correct, sec, key){
+  const shuffled=shuffle(correct.map((t,i)=>({t,i})));
+  box.innerHTML=`<div class="pool">${shuffled.map(o=>`<button type="button" class="pill" data-i="${o.i}">${o.t}</button>`).join('')}</div>
+    <div class="order">${correct.map((_,i)=>`<div class="slot" data-s="${i}"><span class="n">${i+1}</span><span class="tx" style="color:var(--muted)">Toca un paso de arriba</span></div>`).join('')}</div>
+    <div class="fbx"></div><div style="margin-top:10px"><button class="btn ghost sm" type="button" data-again>${ico('refresh')} Reiniciar</button></div>`;
+  let pos=0, misses=0;
+  $$('.pill',box).forEach(p=>p.addEventListener('click',()=>{
+    const slot=$(`.slot[data-s="${pos}"]`,box);
+    if(+p.dataset.i===pos){
+      slot.classList.add('filled','ok'); $('.tx',slot).textContent=p.textContent; $('.tx',slot).style.color=''; p.classList.add('used'); pos++;
+      $('.fbx',box).innerHTML = pos===correct.length ? fb('ok','¡Ruta completa!',` Así se verifica antes de compartir.${misses?` Tuviste ${misses} intento${misses>1?'s':''} fallido${misses>1?'s':''}.`:' ¡Sin errores!'}`) : fb('ok',`Paso ${pos} correcto.`,' Sigue con el siguiente.');
+      if(pos===correct.length) complete(sec,key);
+    }else{
+      misses++; slot.classList.add('bad'); setTimeout(()=>slot.classList.remove('bad'),600);
+      $('.fbx',box).innerHTML=fb('bad','Ese no es el paso '+(pos+1)+'.',' Piensa: ¿qué haces primero cuando algo te impacta?');
+    }
+  }));
+  $('[data-again]',box).addEventListener('click',()=>orderAct(box,correct,sec,key));
+}
+
+function initS4(){
+  // Medidor de contraseña (todo ocurre en el navegador; no se guarda)
+  const inp=$('#pwi'), rules=[
+    {t:'Al menos 12 caracteres', f:s=>s.length>=12},
+    {t:'Mayúsculas y minúsculas', f:s=>/[a-z]/.test(s)&&/[A-Z]/.test(s)},
+    {t:'Al menos un número', f:s=>/\d/.test(s)},
+    {t:'Al menos un símbolo (! _ # $ …)', f:s=>/[^A-Za-z0-9\s]/.test(s)},
+    {t:'Sin palabras obvias ni secuencias (123, abc, password, qwerty…)', f:s=>s.length>0&&!/(123|234|345|abc|qwerty|password|contrase|admin|0000|1111|asdf)/i.test(s)}
+  ];
+  const levels=[['Muy débil','#C2264D',8],['Débil','#E4572E',30],['Regular','#D97706',52],['Fuerte','#0891B2',76],['Muy fuerte','#11795A',100]];
+  const rbox=$('#pwr');
+  const check=()=>{
+    const s=inp.value, met=rules.map(r=>r.f(s)), n=met.filter(Boolean).length;
+    rbox.innerHTML=rules.map((r,i)=>`<li class="${met[i]?'on':''}"><span class="dot">${met[i]?ico('check'):''}</span>${r.t}</li>`).join('');
+    if(!s){ $('#pwm').style.width='0'; $('#pwl').textContent='Escribe para empezar'; $('#pwl').style.color=''; return; }
+    const L = n===5 ? levels[4] : levels[Math.max(0,n-1)];
+    $('#pwm').style.width=L[2]+'%'; $('#pwm').style.background=L[1]; $('#pwl').textContent='Nivel: '+L[0]; $('#pwl').style.color=L[1];
+    if(n===5){ $('#pwfb').innerHTML=fb('ok','¡Contraseña muy fuerte!',' Recuerda: usa una distinta para cada cuenta y activa la verificación en dos pasos.'); complete('s4','pass'); }
+    else $('#pwfb').innerHTML='';
+  };
+  inp.addEventListener('input',check);
+  const words=['Gato','Mango','Bailar','Luna','Cohete','Pizza','Volcan','Rio','Tigre','Nube','Guitarra','Selva'];
+  $('#pwgen').addEventListener('click',()=>{ const w=shuffle(words); inp.value=`${w[0]}${w[1]}${w[2]}_${Math.floor(10+Math.random()*89)}!`; check(); inp.focus(); });
+  check();
+
+  // Configuración de perfil
+  const state={}; SETTINGS.forEach(s=>state[s.k]=!s.safe);   // empieza con todo inseguro
+  const sets=$('#sets'), score=$('#scorebox');
+  sets.innerHTML=SETTINGS.map(s=>`<div class="set" data-k="${s.k}"><span class="tx"><b>${s.t}</b><small>${s.d}</small></span><span class="st"></span>
+    <button class="sw" type="button" role="switch" aria-checked="false" aria-label="${esc(s.t)}"></button></div>`).join('')+'<div id="setfb"></div>';
+  const draw=(changed)=>{
+    let ok=0;
+    SETTINGS.forEach(s=>{
+      const row=$(`[data-k="${s.k}"]`,sets), on=state[s.k], good=on===s.safe; if(good) ok++;
+      $('.sw',row).setAttribute('aria-checked',on);
+      const st=$('.st',row); st.textContent=good?'Seguro':'Riesgo'; st.style.color=good?'var(--ok)':'var(--bad)';
+    });
+    const pct=Math.round(ok/SETTINGS.length*100), R=52, C=2*Math.PI*R;
+    score.innerHTML=`<div style="font-weight:800;color:#C9CFF5">Nivel de privacidad de Laura</div>
+      <svg class="ring" viewBox="0 0 130 130"><circle cx="65" cy="65" r="${R}" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="12"/><circle cx="65" cy="65" r="${R}" fill="none" stroke="${pct===100?'#5DC9A3':pct>=50?'#F59E0B':'#FF4D7E'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct/100)}" transform="rotate(-90 65 65)" style="transition:stroke-dashoffset .4s"/><text x="65" y="74" text-anchor="middle" font-size="28" font-weight="900" fill="#fff">${pct}%</text></svg>
+      <b>${pct===100?'¡Perfil protegido!':pct>=50?'Vas bien, faltan ajustes':'Perfil muy expuesto'}</b>`;
+    if(changed){ const s=SETTINGS.find(x=>x.k===changed), good=state[changed]===s.safe; $('#setfb').innerHTML=fb(good?'ok':'bad', good?'¡Buen ajuste!':'Ese cambio aumenta el riesgo.', ' '+s.why); }
+    if(pct===100){ $('#setfb').innerHTML=fb('ok','¡Lo lograste!',' El perfil de Laura ya es seguro. Revisa estas mismas opciones en tus redes.'); complete('s4','perfil'); }
+  };
+  $$('.set',sets).forEach(row=>$('.sw',row).addEventListener('click',()=>{ state[row.dataset.k]=!state[row.dataset.k]; draw(row.dataset.k); }));
+  draw();
+}
+
+function initS5(){
+  mcq($('#quiz'), QUIZ, 's5','quiz');
+  // Autoevaluación
+  const opts=['Siempre','A veces','Nunca'], sel={};
+  const L=$('#likert');
+  L.innerHTML=LIKERT.map((t,i)=>`<div class="lk" data-i="${i}"><p>${i+1}. ${t}</p><div class="row">${opts.map((o,j)=>`<button type="button" data-j="${j}" aria-pressed="false">${o}</button>`).join('')}</div></div>`).join('');
+  $$('.lk',L).forEach(lk=>$$('button',lk).forEach(b=>b.addEventListener('click',()=>{
+    $$('button',lk).forEach(x=>{x.classList.remove('sel'); x.setAttribute('aria-pressed','false');}); b.classList.add('sel'); b.setAttribute('aria-pressed','true');
+    sel[lk.dataset.i]=2-+b.dataset.j;
+    const n=Object.keys(sel).length;
+    if(n<LIKERT.length){ $('#likert-fb').innerHTML=fb('info',`Llevas ${n} de ${LIKERT.length}.`,' Responde todas para ver tu resultado.'); return; }
+    const pts=Object.values(sel).reduce((a,b)=>a+b,0), weak=LIKERT.filter((_,i)=>sel[i]<2);
+    const lvl = pts>=9 ? ['ok','Ciudadano o ciudadana digital responsable','Tienes hábitos muy seguros. ¡Comparte lo que sabes con tus amigos!'] : pts>=5 ? ['info','Vas por buen camino','Tienes buenos hábitos, pero hay cosas por reforzar.'] : ['bad','Es momento de cambiar algunos hábitos','No te preocupes: con lo que aprendiste aquí puedes empezar hoy.'];
+    $('#likert-fb').innerHTML=fb(lvl[0], `${lvl[1]} (${pts} de 10 puntos)`, ' '+lvl[2]+(weak.length?`<br><b>Para mejorar:</b> ${weak.map(w=>w.charAt(0).toLowerCase()+w.slice(1,-1)).join('; ')}.`:''));
+    complete('s5','auto');
+  })));
+  // Compromiso
+  $('#commits').innerHTML=COMMITS.map((c,i)=>`<label><input type="checkbox" value="${i}"> ${c}</label>`).join('');
+  const err=$('#pact-err');
+  $('#pact-txt').addEventListener('input',()=>err.hidden=true);
+  $$('#commits input').forEach(c=>c.addEventListener('change',()=>err.hidden=true));
+  $('#pact-btn').addEventListener('click',()=>{
+    const txt=$('#pact-txt').value.trim(), chosen=$$('#commits input:checked').map(c=>COMMITS[+c.value]);
+    if(txt.split(/\s+/).filter(Boolean).length<8){ err.textContent='Escribe tu reflexión (al menos 8 palabras).'; err.hidden=false; $('#pact-txt').focus(); return; }
+    if(chosen.length<3){ err.textContent=`Elige al menos 3 compromisos (llevas ${chosen.length}).`; err.hidden=false; return; }
+    $('#pact-out').innerHTML=`<div class="pact"><div class="kicker" style="--c:#FF9BB5">CONECTA+ · Mi compromiso</div><h3>Antes de publicar, pienso. Antes de compartir, comprendo.</h3>
+      <p class="q2">"${esc(txt)}"</p><b>Me comprometo a:</b><ul>${chosen.map(c=>`<li>${c}</li>`).join('')}</ul>
+      <small style="color:#C9CFF5">${new Date().toLocaleDateString('es-CO',{year:'numeric',month:'long',day:'numeric'})}</small></div>
+      <div class="noprint" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn ghost" type="button" onclick="window.print()">${ico('print')} Imprimir o guardar en PDF</button></div>
+      ${fb('ok','¡Reflexión final completada!',' Gracias por pensar en cómo usas las redes. Ese compromiso es el primer paso.')}`;
+    complete('s5','pacto');
+  });
+}
+
+/* =========================================================
+   NAVEGACIÓN
+   ========================================================= */
+const INIT={s1:initS1,s2:initS2,s3:initS3,s4:initS4,s5:initS5};
+function buildNav(){
+  $('#nav').innerHTML=PAGES.map(p=>`<a href="#${p.id}" style="${p.c?`--sc:${p.c}`:''}">${p.n?`<span class="n">${p.n}</span>`:ico(p.icon)} ${p.short}</a>`).join('');
+}
+function route(forced){
+  let id=typeof forced==='string'?forced:'inicio';
+  if(typeof forced!=='string'){ try{ id=decodeURIComponent((location.hash||'#inicio').slice(1)); }catch(e){} }
+  const p=PAGES.find(x=>x.id===id)||PAGES[0];
+  const app=$('#app');
+  if(p.c){ app.style.setProperty('--c',p.c); app.style.setProperty('--cl',p.cl); } else { app.style.removeProperty('--c'); app.style.removeProperty('--cl'); }
+  app.innerHTML=VIEW[p.id](p);
+  if(INIT[p.id]) INIT[p.id]();
+  if(p.id==='creditos') $('#resetAll').addEventListener('click',()=>{ if(confirm('¿Reiniciar todo tu progreso en este navegador?')){ ST={done:{}}; save(); renderProgress(); toast(`${ico('refresh')} Progreso reiniciado`); } });
+  $$('.nav a').forEach(a=>{ const on=a.getAttribute('href')==='#'+p.id; a.classList.toggle('on',on); if(on){ a.setAttribute('aria-current','page'); a.scrollIntoView({block:'nearest',inline:'nearest'}); } else a.removeAttribute('aria-current'); });
+  document.title = p.id==='inicio' ? 'CONECTA+ · Antes de publicar, piensa' : `${p.title||p.short} · CONECTA+`;
+  renderProgress(); window.scrollTo({top:0});
+}
+function go(h){ h=h.replace(/^#/,''); try{ history.pushState(null,'','#'+h); }catch(e){} route(h); }
+document.addEventListener('click',e=>{ const a=e.target.closest('a[href^="#"]'); if(!a) return; const h=a.getAttribute('href').slice(1); if(!PAGES.some(p=>p.id===h)) return; e.preventDefault(); go(h); });
+window.addEventListener('popstate',()=>route());
+window.addEventListener('hashchange',()=>route());
+buildNav(); route();
+</script>
+</body>
+</html>
