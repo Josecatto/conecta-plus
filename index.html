@@ -276,6 +276,50 @@ textarea:focus{outline:none;border-color:var(--c)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 footer{text-align:center;color:var(--muted);font-size:.85rem;padding:20px 0 36px}
 
+/* =========================================================
+   ESTILO GLASSY (vidrio esmerilado)
+   ========================================================= */
+:root{
+  --glass:rgba(255,255,255,.52); --glass-2:rgba(255,255,255,.68); --glass-in:rgba(255,255,255,.5);
+  --glass-b:rgba(255,255,255,.75); --blur:blur(20px) saturate(170%);
+  --gshadow:0 12px 40px rgba(17,22,58,.10), inset 0 1px 0 rgba(255,255,255,.8);
+}
+body{background:#EEF1FA}
+body::before{content:"";position:fixed;inset:-10%;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(38% 32% at 12% 18%, rgba(61,90,254,.30), transparent 70%),
+    radial-gradient(34% 30% at 88% 22%, rgba(255,77,126,.26), transparent 70%),
+    radial-gradient(40% 34% at 78% 82%, rgba(0,166,199,.24), transparent 70%),
+    radial-gradient(36% 32% at 18% 86%, rgba(124,58,237,.22), transparent 70%);
+  animation:drift 26s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate3d(3%,-2%,0) scale(1.05)}}
+/* paneles principales con desenfoque */
+.card,.obj,.top{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-b);box-shadow:var(--gshadow)}
+.top{background:rgba(238,241,250,.6);border-width:0 0 1px}
+.obj{border-left:5px solid var(--pink)}
+/* elementos internos: translúcidos sin desenfoque (más livianos en celular) */
+.mini,.q,.post,.news,.set,.lk,.step4,.help a,.vs .side,.commit label,.order .slot,.opt,.post .acts button,.news .acts button,.lk .row button,.choices button,.pw input,textarea,.btn.ghost,.tip,.orient{background:var(--glass-in);border-color:var(--glass-b)}
+.mini:hover,.help a:hover{background:var(--glass-2)}
+.tip{background:color-mix(in srgb,var(--cl) 70%,transparent)}
+.tally{background:color-mix(in srgb,var(--cl) 75%,transparent);border:1px solid var(--glass-b)}
+.ptag{background:color-mix(in srgb,var(--cl) 80%,transparent);border:1px solid var(--glass-b)}
+.nav a:hover{background:var(--glass-2);border-color:var(--glass-b)}
+.gprog .track,.meter{background:rgba(17,22,58,.08)}
+/* cabeceras oscuras como vidrio ahumado */
+.hero{background:rgba(17,22,58,.86);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur)}
+.shead,.score,.pact{background:rgba(17,22,58,.84);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,.14);box-shadow:0 14px 40px rgba(17,22,58,.22), inset 0 1px 0 rgba(255,255,255,.12)}
+.phone{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-color:var(--glass-b)}
+.phone .bar{background:rgba(17,22,58,.88)}
+.chat{background:rgba(241,243,250,.55)}
+.msg.them{background:rgba(255,255,255,.85)}
+/* estados de respuesta: se mantienen sólidos para leerse bien */
+.opt.ok,.post .acts button.ok,.news .acts button.ok,.order .slot.ok{background:var(--ok-bg)}
+.opt.bad,.post .acts button.bad,.news .acts button.bad,.order .slot.bad{background:var(--bad-bg)}
+.lk .row button.sel{background:var(--c)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .card,.obj,.phone{background:rgba(255,255,255,.92)} .top{background:rgba(238,241,250,.96)}
+}
+
 @media (min-width:720px){
   .hero .wrap{grid-template-columns:1.25fr 1fr;padding-top:52px;padding-bottom:56px}
   .grid2,.vs,.posts,.newsfeed,.help,.steps4,.commit{grid-template-columns:1fr 1fr}
